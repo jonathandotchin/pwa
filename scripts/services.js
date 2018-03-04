@@ -61,8 +61,8 @@
                     } else {
                         document.querySelector('#app-status').classList.add("app-bad-stats");
                     }
-                    document.querySelector("#app-yesterday-count").innerHTML = self.yesterdayPeakConcurrentUsers;
-                    document.querySelector('#app-monthly-count').innerHTML = self.lastMonthUniquePlayersCount;*/
+                    document.querySelector("#app-yesterday-count").innerHTML = self.yesterdayPeakConcurrentUsers;*/
+                    document.querySelector('#app-monthly-count').innerHTML = self.lastMonthUniquePlayersCount;
                     document.querySelector("#homeprogressbar").style.visibility = "hidden";
                     self.initialized = true;
                 });
