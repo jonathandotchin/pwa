@@ -31,6 +31,7 @@
                     }),
                     $.ajax({
                         url: "https://steamspy.com/api.php?request=appdetails&appid=570",
+                        dataType: "jsonp",
                         cache: false,
                         success: function (content) {
                             self.name = content.name;
@@ -44,6 +45,7 @@
                     }),
                     $.ajax({
                         url: "https://crowbar.steamstat.us/Barney",
+                        dataType: "jsonp",
                         cache: false,
                         success: function (content) {
                             self.gameCoordinatorStatus = content.services.dota2.status;
