@@ -29,6 +29,7 @@
                             self.lastMonthUniquePlayersCount = new Number(content.users_last_month).toLocaleString();
                         }
                     }),
+                    /*
                     $.ajax({
                         url: "https://steamspy.com/api.php?request=appdetails&appid=570",
                         dataType: "jsonp",
@@ -51,17 +52,17 @@
                             self.gameCoordinatorStatus = content.services.dota2.status;
                             self.gameCoordinatorTitle = content.services.dota2.title;
                         }
-                    })
+                    })*/
                 ).then(function () {
                     document.querySelector("#app-developer").innerHTML = "Developed and Published by " + self.developer;
-                    document.querySelector('#app-status').innerHTML = self.gameCoordinatorTitle;
+                    /*document.querySelector('#app-status').innerHTML = self.gameCoordinatorTitle;
                     if (self.gameCoordinatorStatus === "good") {
                         document.querySelector('#app-status').classList.add("app-good-stats");
                     } else {
                         document.querySelector('#app-status').classList.add("app-bad-stats");
                     }
                     document.querySelector("#app-yesterday-count").innerHTML = self.yesterdayPeakConcurrentUsers;
-                    document.querySelector('#app-monthly-count').innerHTML = self.lastMonthUniquePlayersCount;
+                    document.querySelector('#app-monthly-count').innerHTML = self.lastMonthUniquePlayersCount;*/
                     document.querySelector("#homeprogressbar").style.visibility = "hidden";
                     self.initialized = true;
                 });
