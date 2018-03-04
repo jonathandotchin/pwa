@@ -22,14 +22,14 @@
 
                 $.when(
                     $.ajax({
-                        url: "http://www.dota2.com/jsfeed/uniqueusers",
+                        url: "https://www.dota2.com/jsfeed/uniqueusers",
                         cache: false,
                         success: function (content) {
                             self.lastMonthUniquePlayersCount = new Number(content.users_last_month).toLocaleString();
                         }
                     }),
                     $.ajax({
-                        url: "http://steamspy.com/api.php?request=appdetails&appid=570",
+                        url: "https://steamspy.com/api.php?request=appdetails&appid=570",
                         cache: false,
                         success: function (content) {
                             self.name = content.name;
@@ -76,7 +76,7 @@
                 $.when(
                     $.ajax({
                         dataType: "xml",
-                        url: "http://blog.dota2.com/feed/",
+                        url: "https://blog.dota2.com/feed/",
                         cache: false,
                         success: function (content) {
                             self.newsItems = [];
@@ -123,7 +123,7 @@
                 $.when(
                     $.ajax({
                         url:
-                            "http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002?appid=570&Key=111E8DC6BD352EC8E25549E21C41DD17&feeds=steam_updates",
+                            "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002?appid=570&Key=111E8DC6BD352EC8E25549E21C41DD17&feeds=steam_updates",
                         cache: false,
                         success: function (content) {
                             self.updatesItems = [];
@@ -185,7 +185,7 @@
 
                 $.when(
                     $.ajax({
-                        url: "http://www.dota2.com/jsfeed/heropickerdata?l=english",
+                        url: "https://www.dota2.com/jsfeed/heropickerdata?l=english",
                         cache: false,
                         success: function (content) {
                             self.rawBiosContent = content;
@@ -200,7 +200,7 @@
                         }
                     }),
                     $.ajax({
-                        url: "http://www.dota2.com/jsfeed/heropediadata?feeds=herodata&l=english",
+                        url: "https://www.dota2.com/jsfeed/heropediadata?feeds=herodata&l=english",
                         cache: false,
                         success: function (content) {
                             self.rawStatsContent = content;
@@ -208,7 +208,7 @@
                     }),
 
                     $.ajax({
-                        url: "http://www.dota2.com/jsfeed/abilitydata?l=english",
+                        url: "https://www.dota2.com/jsfeed/abilitydata?l=english",
                         cache: false,
                         success: function (content) {
                             self.rawAbilitiesContent = content;
@@ -446,7 +446,7 @@
 
                 $.when(
                     $.ajax({
-                        url: "http://www.dota2.com/jsfeed/itemdata?l=english",
+                        url: "https://www.dota2.com/jsfeed/itemdata?l=english",
                         cache: false,
                         success: function (content) {
                             $.each(content.itemdata, function (index, value) {
