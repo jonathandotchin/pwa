@@ -22,7 +22,7 @@
 
                 $.when(
                     $.ajax({
-                        url: "https://www.dota2.com/jsfeed/uniqueusers",
+                        url: "https://www.dota2.com/jsfeed/uniqueusers?callback=?",
                         cache: false,
                         success: function (content) {
                             self.lastMonthUniquePlayersCount = new Number(content.users_last_month).toLocaleString();
