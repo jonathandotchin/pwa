@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed.
+        For details, see https://www.html5rocks.com/en/tutorials/security/content-security-policy/
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://* 'unsafe-inline' 'unsafe-eval'">
 
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <title>Dotapedia</title>
+
+    <link rel="stylesheet" type="text/css" href="libs/onsen/css/onsenui.css" />
+    <link rel="stylesheet" type="text/css" href="libs/onsen/css/onsen-css-components.css" />
+    <link rel="stylesheet" type="text/css" href="libs/onsen/css/ionicons/css/ionicons.css" />
+    <link rel="stylesheet" type="text/css" href="styles/app.css">
+
+    <script src="libs/onsen/js/onsenui.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/sprintf/sprintf.min.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/services.js"></script>
+</head>
+<body>
+    <ons-navigator id="navigatorcontrol" page="pages/splitter.html"></ons-navigator>
+</body>
+</html>
