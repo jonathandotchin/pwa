@@ -19,7 +19,6 @@
                 if (self.initialized === true) {
                     return;
                 }
-
                 $.when(
                     $.ajax({
                         url: "https://www.dota2.com/jsfeed/uniqueusers",
@@ -29,39 +28,38 @@
                             self.lastMonthUniquePlayersCount = new Number(content.users_last_month).toLocaleString();
                         }
                     }),
-                    /*
                     $.ajax({
-                        url: "https://steamspy.com/api.php?request=appdetails&appid=570",
-                        dataType: "jsonp",
+                        url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%20%3D%20%22https%3A%2F%2Fsteamspy.com%2Fapi.php%3Frequest%3Dappdetails%26appid%3D570%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",
+                        dataType: "json",
                         cache: false,
                         success: function (content) {
-                            self.name = content.name;
-                            self.developer = content.developer;
-                            self.publisher = content.publisher;
-                            self.yesterdayPeakConcurrentUsers = new Number(content.ccu).toLocaleString();
-                            self.biWeeklyPlayersCount = new Number(content.players_2weeks).toLocaleString();
-                            self.biWeeklyPlayersCountVariance = new Number(content.players_2weeks_variance).
+                            self.name = content.query.results.json.name;
+                            self.developer = content.query.results.json.developer;
+                            self.publisher = content.query.results.json.publisher;
+                            self.yesterdayPeakConcurrentUsers = new Number(content.query.results.json.ccu).toLocaleString();
+                            self.biWeeklyPlayersCount = new Number(content.query.results.json.players_2weeks).toLocaleString();
+                            self.biWeeklyPlayersCountVariance = new Number(content.query.results.json.players_2weeks_variance).
                                 toLocaleString();
                         }
                     }),
                     $.ajax({
-                        url: "https://crowbar.steamstat.us/Barney",
-                        dataType: "jsonp",
+                        url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%20%3D%20%22https%3A%2F%2Fcrowbar.steamstat.us%2FBarney%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",
+                        dataType: "json",
                         cache: false,
                         success: function (content) {
-                            self.gameCoordinatorStatus = content.services.dota2.status;
-                            self.gameCoordinatorTitle = content.services.dota2.title;
+                            self.gameCoordinatorStatus = content.query.results.json.services.dota2.status;
+                            self.gameCoordinatorTitle = content.query.results.json.services.dota2.title;
                         }
-                    })*/
+                    })
                 ).then(function () {
                     document.querySelector("#app-developer").innerHTML = "Developed and Published by " + self.developer;
-                    /*document.querySelector('#app-status').innerHTML = self.gameCoordinatorTitle;
+                    document.querySelector('#app-status').innerHTML = self.gameCoordinatorTitle;
                     if (self.gameCoordinatorStatus === "good") {
                         document.querySelector('#app-status').classList.add("app-good-stats");
                     } else {
                         document.querySelector('#app-status').classList.add("app-bad-stats");
                     }
-                    document.querySelector("#app-yesterday-count").innerHTML = self.yesterdayPeakConcurrentUsers;*/
+                    document.querySelector("#app-yesterday-count").innerHTML = self.yesterdayPeakConcurrentUsers;
                     document.querySelector('#app-monthly-count').innerHTML = self.lastMonthUniquePlayersCount;
                     document.querySelector("#homeprogressbar").style.visibility = "hidden";
                     self.initialized = true;
@@ -80,7 +78,7 @@
                 $.when(
                     $.ajax({
                         dataType: "xml",
-                        url: "https://blog.dota2.com/feed/",
+                        url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%20%3D%20'http%3A%2F%2Fblog.dota2.com%2Ffeed%2F'&format=xml&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",
                         cache: false,
                         success: function (content) {
                             self.newsItems = [];
@@ -127,11 +125,12 @@
                 $.when(
                     $.ajax({
                         url:
-                            "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002?appid=570&Key=111E8DC6BD352EC8E25549E21C41DD17&feeds=steam_updates",
+                            "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%20%3D%20'https%3A%2F%2Fapi.steampowered.com%2FISteamNews%2FGetNewsForApp%2Fv0002%3Fappid%3D570%26Key%3D111E8DC6BD352EC8E25549E21C41DD17%26feeds%3Dsteam_updates'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",
+                        dataType: "json",
                         cache: false,
                         success: function (content) {
                             self.updatesItems = [];
-                            $.each(content.appnews.newsitems, function (index, value) {
+                            $.each(content.query.results.appnews.newsitems, function (index, value) {
                                 var item = {
                                     title: value.title,
                                     url: value.url,
@@ -169,13 +168,13 @@
             rawAbilitiesContent: null,
             heroes: {},
             heroSmallImageUrl: "http://cdn.dota2.com/apps/dota2/images/heroes/%s_sb.png",
-            heroMediumLocalImageUrl: "/images/heroes/%s_lg.png",
+            heroMediumLocalImageUrl: "/dotapedia/images/heroes/%s_lg.png",
             heroMediumImageUrl: "http://cdn.dota2.com/apps/dota2/images/heroes/%s_lg.png",
             heroLargeImageUrl: "http://cdn.dota2.com/apps/dota2/images/heroes/%s_full.png",
             heroPortraitUrl: "http://cdn.dota2.com/apps/dota2/images/heroes/%s_vert.jpg",
             abilitySmallerImage: "http://cdn.dota2.com/apps/dota2/images/abilities/%s_md.png",
             abilitySmallImage: "http://cdn.dota2.com/apps/dota2/images/abilities/%s_hp1.png",
-            abilityMediumLocalImage: "/images/abilities/%s_hp2.png",
+            abilityMediumLocalImage: "/dotapedia/images/abilities/%s_hp2.png",
             abilityMediumImage: "http://cdn.dota2.com/apps/dota2/images/abilities/%s_hp2.png",
             abilityLargeImage: "http://cdn.dota2.com/apps/dota2/images/abilities/%s_lg.png",
             getHeroAbilityMatchKey: function (rawKey) {
@@ -190,6 +189,7 @@
                 $.when(
                     $.ajax({
                         url: "https://www.dota2.com/jsfeed/heropickerdata?l=english",
+                        dataType: "jsonp",
                         cache: false,
                         success: function (content) {
                             self.rawBiosContent = content;
@@ -205,6 +205,7 @@
                     }),
                     $.ajax({
                         url: "https://www.dota2.com/jsfeed/heropediadata?feeds=herodata&l=english",
+                        dataType: "jsonp",
                         cache: false,
                         success: function (content) {
                             self.rawStatsContent = content;
@@ -213,6 +214,7 @@
 
                     $.ajax({
                         url: "https://www.dota2.com/jsfeed/abilitydata?l=english",
+                        dataType: "jsonp",
                         cache: false,
                         success: function (content) {
                             self.rawAbilitiesContent = content;
@@ -246,9 +248,9 @@
                             self.heroes[key].mediumImage = image.src;
 
                             if (self.heroes[key].attack === "Melee") {
-                                self.heroes[key].attackIcon = "/images/icons/melee.png";
+                                self.heroes[key].attackIcon = "/dotapedia/images/icons/melee.png";
                             } else {
-                                self.heroes[key].attackIcon = "/images/icons/range.png";
+                                self.heroes[key].attackIcon = "/dotapedia/images/icons/range.png";
                             }
 
                             self.heroes[key].roles = [];
@@ -282,10 +284,10 @@
                             };
 
                             if (self.heroes[key].faction.name === 'radiant') {
-                                self.heroes[key].faction.icon = "/images/icons/radiant.png";
+                                self.heroes[key].faction.icon = "/dotapedia/images/icons/radiant.png";
                             }
                             else {
-                                self.heroes[key].faction.icon = "/images/icons/dire.png";
+                                self.heroes[key].faction.icon = "/dotapedia/images/icons/dire.png";
                             }
                         }
                     }
@@ -327,15 +329,15 @@
                             switch (hero.pa) {
                                 case "str":
                                     self.heroes[key].attribute.strength.primary = true;
-                                    self.heroes[key].attribute.primaryIcon = "/images/icons/strength.png";
+                                    self.heroes[key].attribute.primaryIcon = "/dotapedia/images/icons/strength.png";
                                     break;
                                 case "int":
                                     self.heroes[key].attribute.intelligence.primary = true;
-                                    self.heroes[key].attribute.primaryIcon = "/images/icons/intelligence.png";
+                                    self.heroes[key].attribute.primaryIcon = "/dotapedia/images/icons/intelligence.png";
                                     break;
                                 case "agi":
                                     self.heroes[key].attribute.agility.primary = true;
-                                    self.heroes[key].attribute.primaryIcon = "/images/icons/agility.png";
+                                    self.heroes[key].attribute.primaryIcon = "/dotapedia/images/icons/agility.png";
                                     break;
                             }
                         }
@@ -434,11 +436,11 @@
             recipeKey: "recipe",
             recipeName: "Recipe",
             recipeImage: "recipe_lg.png",
-            goldLocalImage: "/images/icons/gold.png",
+            goldLocalImage: "/dotapedia/images/icons/gold.png",
             items: {},
             seasonalItemsStartingId: 1000,
             itemImageUrl: "http://cdn.dota2.com/apps/dota2/images/items/%s",
-            itemLocalImageUrl: "/images/items/%s",
+            itemLocalImageUrl: "/dotapedia/images/items/%s",
             getItemKey: function (rawKey) {
                 return rawKey.replace(/[^A-Za-z0-9]+/g, "").toLowerCase();
             },
@@ -451,6 +453,7 @@
                 $.when(
                     $.ajax({
                         url: "https://www.dota2.com/jsfeed/itemdata?l=english",
+                        dataType: "jsonp",
                         cache: false,
                         success: function (content) {
                             $.each(content.itemdata, function (index, value) {
