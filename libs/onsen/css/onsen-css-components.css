@@ -50,12 +50,12 @@ h6 {
   font-weight: 400;
   font-size: 17px;
   background-color: #f9f9f9;
-  position: absolute;
+  /*position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
-  overflow: visible;
+  overflow: visible;*/
   font-size: 17px;
   color: #1f1f21;
   -ms-overflow-style: none;
