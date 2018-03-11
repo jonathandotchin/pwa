@@ -64,6 +64,10 @@
             };
         },
 
+        aboutpage: function(page){
+            var ads = page.querySelector('#ads-2').innerHTML = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- PWA --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9345895155624673" data-ad-slot="5523851043" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
+        },
+
         // HeroOverviewPage Controller
         herooverviewpage: function (page) {
             var hero = page.ownerDocument.querySelector('#herodetailspage').data.element;
