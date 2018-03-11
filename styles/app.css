@@ -269,6 +269,6 @@ img {
 }
 
 /* AdSense */
-.google-auto-placed {
+.google-auto-placed, .adsbygoogle {
     z-index: 10;
 }
