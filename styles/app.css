@@ -268,3 +268,7 @@ img {
     width: 22px;
 }
 
+/* AdSense */
+.google-auto-placed {
+    z-index: 10;
+}
