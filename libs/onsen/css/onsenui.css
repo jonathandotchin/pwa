@@ -29,12 +29,12 @@ ons-gesture-detector {
 
 ons-navigator,
 ons-tabbar {
-  position: absolute;
+  /*position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  overflow: hidden;
+  overflow: hidden;*/
 }
 
 ons-tab {
