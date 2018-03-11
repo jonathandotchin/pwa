@@ -50,12 +50,12 @@ h6 {
   font-weight: 400;
   font-size: 17px;
   background-color: #f9f9f9;
-  /*position: absolute;
+  position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
-  overflow: visible;*/
+  overflow: visible;
   font-size: 17px;
   color: #1f1f21;
   -ms-overflow-style: none;
@@ -69,22 +69,22 @@ h6 {
 }
 .page__content {
   background-color: #f9f9f9;
-  /*position: absolute;
+  position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
-  bottom: 0px;*/
+  bottom: 0px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .page__background {
   background-color: #f9f9f9;
-  /*position: absolute;
+  position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
-  bottom: 0px;*/
+  bottom: 0px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
